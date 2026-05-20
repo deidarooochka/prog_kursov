@@ -57,23 +57,25 @@ namespace prog_kursov
                 totalCards = 30;
                 cols = 6;
                 rows = 5;
-                startImageIndex = 19; 
+                startImageIndex = 19;
             }
 
             opened_counter = 0;
 
             InitializeComponent();
-        
+
             this.StartPosition = FormStartPosition.CenterScreen;
 
             SetupFormSize();
             CreateGameBoard();
-            this.Load += Game_load; //загрузка игры
 
             pairs = new int[pairsCount];
             game_pairs = new int[totalCards];
             opened = new int[2];
+
+            this.Load += Game_load; //загрузка игры
             this.FormClosing += Game_FormClosing; //обработка закрытия формы
+
         }
 
         private void SetupFormSize()
@@ -90,7 +92,7 @@ namespace prog_kursov
 
             panel1.Size = new Size(panelWidth, panelHeight);
             panel1.Location = new Point((this.ClientSize.Width - panelWidth) / 2, 80); //центрируем по горизонтали
-  
+
             panel1.BackColor = System.Drawing.Color.SeaShell;
         }
 
@@ -114,7 +116,7 @@ namespace prog_kursov
                 pb.Location = new Point(x, y);
                 pb.Size = new Size(cardWidth, cardHeight);
                 pb.Tag = i;
- 
+
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
                 pb.BackgroundImageLayout = ImageLayout.Zoom;
 
@@ -125,7 +127,7 @@ namespace prog_kursov
             }
         }
 
-        
+
         public void hide()
         {
             int backImageIndex = 8;
@@ -141,15 +143,14 @@ namespace prog_kursov
         }
 
 
-
         private void Game_load(object sender, EventArgs e)
         {
             hide();
-            начатьНовуюToolStripMenuItem_Click(null, null);
+            NewGame_Click(null, null);
         }
 
         // начало новой игры
-        private void начатьНовуюToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewGame_Click(object sender, EventArgs e)
         {
             movesCount = 0;
             seconds = 0;
@@ -172,12 +173,13 @@ namespace prog_kursov
             //перемешиваем пары
             for (int i = pairsCount - 1; i > 0; i--)
             {
-                int j = R.Next(i + 1);
+                int j = R.Next(0, i + 1);
                 int temp = pairs[i];
                 pairs[i] = pairs[j];
                 pairs[j] = temp;
             }
 
+            
             for (int i = 0; i < totalCards; i++)
             {
                 array_picbox[i].Visible = true;
@@ -222,7 +224,7 @@ namespace prog_kursov
 
             if (opened_counter == 1 && opened[0] == index) return; //если кликнули по уже открытой карточке, не реагируем
 
-            //если уже открыто 2 карточки, прячем их
+            // если уже открыто 2 карточки, прячем их
             if (opened_counter == 2)
             {
                 hide();
@@ -233,8 +235,8 @@ namespace prog_kursov
             opened_counter++;
 
             p.BackgroundImage = imageList1.Images[startImageIndex + game_pairs[index]];
-            p.Image = null; 
-            
+            p.Image = null;
+
             if (opened_counter == 2)
             {
                 movesCount++;
@@ -257,7 +259,7 @@ namespace prog_kursov
                     array_picbox[opened[1]].Visible = false;
                 }
 
-                hide(); 
+                hide();
                 opened_counter = 0;
                 waiting = false;
                 CheckGameOver();
@@ -288,21 +290,20 @@ namespace prog_kursov
                     winSound.Play();
                 }
                 catch
-                {
-                }
+                {}
 
                 if (difficulty == "hard")
                 {
                     Records.SaveRecord(playerName, seconds);
                 }
 
-                DialogResult result = MessageBox.Show( $"Поздравляем, {playerName}!\n\nВремя: {seconds} секунд\nХодов: {movesCount}\n\nХотите сыграть ещё раз?",
+                DialogResult result = MessageBox.Show($"Поздравляем, {playerName}!\n\nВремя: {seconds} секунд\nХодов: {movesCount}\n\nХотите сыграть ещё раз?",
                 "Победа!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {
                     // Перезапуск
-                    начатьНовуюToolStripMenuItem_Click(null, null);
+                    NewGame_Click(null, null);
                 }
                 else
                 {

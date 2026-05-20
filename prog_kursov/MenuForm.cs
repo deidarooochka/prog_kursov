@@ -6,10 +6,10 @@ namespace prog_kursov
 {
     public partial class MenuForm : Form
     {
-        private string currentDifficulty = "easy"; //текущая сложность (легкая по умолчанию)
-        private Game gameForm = null; // ссылка на форму игры
-        private bool isGameRunning = false; // запущена ли игра
-        private SoundPlayer backgroundMusic; // для управления музыкой
+        string currentDifficulty = "easy"; //текущая сложность (легкая по умолчанию)
+        Game gameForm = null; // ссылка на форму игры
+        bool isGameRunning = false; // запущена ли игра
+        SoundPlayer backgroundMusic; // для управления музыкой
 
         public MenuForm()
         {
@@ -21,8 +21,8 @@ namespace prog_kursov
             PlayBackgroundMusic(); // запускаем музыку при открытии меню
 
             // привязываем события
-            button1.Click += btnStart_Click;
-            button2.Click += btnExit_Click;
+            btnStart.Click += btnStart_Click;
+            btnExit.Click += btnExit_Click;
 
             // привязываем кнопки сложности
             btnEasy.Click += btnEasy_Click;

@@ -22,7 +22,7 @@ namespace prog_kursov
     {
         private static string filePath = "records.txt";
 
-        // Сохранить рекорд
+        // сохранить рекорд
         public static void SaveRecord(string playerName, int seconds)
         {
             List<Record> records = LoadRecords();
@@ -34,14 +34,14 @@ namespace prog_kursov
                 Date = DateTime.Now
             });
 
-            // Сортируем по времени
+            // сортируем по времени
             records = records.OrderBy(r => r.Seconds).Take(5).ToList();
 
-            // Сохраняем в файл
+            // сохраняем в файл
             SaveToFile(records);
         }
 
-        // Загрузить рекорды
+        // загрузить рекорды
         public static List<Record> LoadRecords()
         {
             List<Record> records = new List<Record>();
@@ -74,7 +74,7 @@ namespace prog_kursov
             return records.OrderBy(r => r.Seconds).Take(5).ToList();
         }
 
-        // Сохранить в файл
+        // сохранить в файл
         private static void SaveToFile(List<Record> records)
         {
             try
@@ -92,7 +92,7 @@ namespace prog_kursov
             }
         }
 
-        // Получить текст для отображения рейтинга
+        // получить текст для отображения рейтинга
         public static string GetRecordsText()
         {
             var records = LoadRecords(); 

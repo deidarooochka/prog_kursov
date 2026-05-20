@@ -32,14 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.начатьНовуюИгруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.начатьНовуюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnBackToMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // imageList1
@@ -85,55 +82,11 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.SeaShell;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(206, 27);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(206, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 528);
+            this.panel1.Size = new System.Drawing.Size(600, 555);
             this.panel1.TabIndex = 16;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.IndianRed;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.начатьНовуюИгруToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(806, 27);
-            this.menuStrip1.TabIndex = 17;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // начатьНовуюИгруToolStripMenuItem
-            // 
-            this.начатьНовуюИгруToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.начатьНовуюToolStripMenuItem,
-            this.btnBackToMenu});
-            this.начатьНовуюИгруToolStripMenuItem.Font = new System.Drawing.Font("Bebas Neue Cyrillic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.начатьНовуюИгруToolStripMenuItem.ForeColor = System.Drawing.Color.SeaShell;
-            this.начатьНовуюИгруToolStripMenuItem.Name = "начатьНовуюИгруToolStripMenuItem";
-            this.начатьНовуюИгруToolStripMenuItem.Size = new System.Drawing.Size(47, 23);
-            this.начатьНовуюИгруToolStripMenuItem.Text = "Игра";
-            // 
-            // начатьНовуюToolStripMenuItem
-            // 
-            this.начатьНовуюToolStripMenuItem.BackColor = System.Drawing.Color.IndianRed;
-            this.начатьНовуюToolStripMenuItem.ForeColor = System.Drawing.Color.SeaShell;
-            this.начатьНовуюToolStripMenuItem.Name = "начатьНовуюToolStripMenuItem";
-            this.начатьНовуюToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
-            this.начатьНовуюToolStripMenuItem.Text = "Начать новую";
-            this.начатьНовуюToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.начатьНовуюToolStripMenuItem.Click += new System.EventHandler(this.начатьНовуюToolStripMenuItem_Click);
-            // 
-            // btnBackToMenu
-            // 
-            this.btnBackToMenu.BackColor = System.Drawing.Color.IndianRed;
-            this.btnBackToMenu.ForeColor = System.Drawing.Color.SeaShell;
-            this.btnBackToMenu.Name = "btnBackToMenu";
-            this.btnBackToMenu.Size = new System.Drawing.Size(207, 24);
-            this.btnBackToMenu.Text = "Выйти в главное меню";
-            this.btnBackToMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBackToMenu.Click += new System.EventHandler(this.btnBackToMenu_Click);
             // 
             // timer1
             // 
@@ -167,24 +120,50 @@
             this.label2.TabIndex = 32;
             this.label2.Text = "label2";
             // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnStart.Font = new System.Drawing.Font("Bebas Neue Cyrillic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnStart.ForeColor = System.Drawing.Color.White;
+            this.btnStart.Location = new System.Drawing.Point(26, 205);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(146, 78);
+            this.btnStart.TabIndex = 33;
+            this.btnStart.Text = "Начать новую игру";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.NewGame_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.LightPink;
+            this.btnBack.Font = new System.Drawing.Font("Bebas Neue Cyrillic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(26, 306);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(146, 77);
+            this.btnBack.TabIndex = 34;
+            this.btnBack.Text = "Выйти в главное меню";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBackToMenu_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(806, 555);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Game";
             this.Text = "Найди пару";
             this.Load += new System.EventHandler(this.Game_load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,13 +172,11 @@
         #endregion
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem начатьНовуюИгруToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem начатьНовуюToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem btnBackToMenu;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 
