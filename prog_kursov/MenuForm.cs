@@ -125,7 +125,7 @@ namespace prog_kursov
             // создаем новую игру
             gameForm = new Game(playerName, currentDifficulty);
 
-            gameForm.FormClosed += GameForm_FormClosed;
+            gameForm.FormClosed += GameForm_FormClosed; //вызовется когда форма игры закроется
 
             gameForm.Show();
         }
@@ -136,7 +136,7 @@ namespace prog_kursov
             if (gameForm != null)
             {
                 gameForm.FormClosed -= GameForm_FormClosed;
-                gameForm.Dispose();
+                gameForm.Dispose(); 
                 gameForm = null;
             }
 

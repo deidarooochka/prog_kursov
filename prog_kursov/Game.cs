@@ -121,16 +121,16 @@ namespace prog_kursov
                 pb.BackgroundImageLayout = ImageLayout.Zoom;
 
                 pb.Click += pictureBox1_Click;
-
-                panel1.Controls.Add(pb);
-                array_picbox[i] = pb;
+                 
+                panel1.Controls.Add(pb); //добавляем карточку на панель
+                array_picbox[i] = pb; //сохраняем ссылку на карточку в массиве
             }
         }
 
 
         public void hide()
         {
-            int backImageIndex = 8;
+            int backImageIndex = 8; //индекс рубашки
 
             for (int i = 0; i < totalCards; i++)
             {

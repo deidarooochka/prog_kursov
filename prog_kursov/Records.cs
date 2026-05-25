@@ -92,19 +92,6 @@ namespace prog_kursov
             }
         }
 
-        // получить текст для отображения рейтинга
-        public static string GetRecordsText()
-        {
-            var records = LoadRecords(); 
-            if (records.Count == 0)
-                return "Пока нет рекордов";
-
-            string text = "";
-            for (int i = 0; i < records.Count; i++)
-            {
-                text += $"{i + 1}. {records[i]}\n";
-            }
-            return text;
-        }
+       
     }
 }
